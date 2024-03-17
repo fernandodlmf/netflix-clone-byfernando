@@ -8,7 +8,6 @@ const serverAuth = async (req: NextApiRequest) => {
     if(!session?.user?.email)
         throw new Error('There is no user in the session')
 
-
         const currentUser = await prismadb.user.findUnique({
             where: {
                 email: session.user.email
